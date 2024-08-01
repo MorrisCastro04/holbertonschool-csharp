@@ -1,11 +1,11 @@
-﻿namespace _2_print_alphabet;
+﻿﻿using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         for (char letter = 'a'; letter <= 'z'; letter++) {
-            Console.Write(letter);
+            Console.Write("{0}", letter);
         }
     }
 }

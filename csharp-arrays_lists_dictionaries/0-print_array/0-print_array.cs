@@ -7,6 +7,12 @@
             Console.WriteLine("Size cannot be negative");
             return null;
         }
+
+        if ( size == 0)
+        {
+            return new int[0];
+        }
+
         int[] array = new int[size];
         for (int i = 0; i < size; i++)
         {

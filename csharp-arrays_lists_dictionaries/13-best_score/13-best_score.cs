@@ -13,7 +13,7 @@ class Dictionary
         int BestScore = 0;
         foreach (KeyValuePair<string, int> score in myList)
         {
-            if (BestScore < score.Value)
+            if (BestScore <= score.Value)
             {
                 player = score.Key;
                 BestScore = score.Value;

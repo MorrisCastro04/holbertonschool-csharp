@@ -15,7 +15,14 @@ class List
         for (int i = 0; i < size; i++)
         {
             list.Add(i);
-            Console.Write("{0} ", i);
+            if (i == size - 1)
+            {
+                Console.Write("{0}", i);
+            }
+            else
+            {
+                Console.Write("{0} ", i);
+            }
         }
         Console.WriteLine();
         return list;

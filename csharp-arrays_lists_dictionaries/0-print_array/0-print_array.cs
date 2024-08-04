@@ -20,6 +20,14 @@ class Array
             for (int i = 0; i < size; i++)
             {
                 newArray[i] = i;
+                if (i == size -1)
+                {
+                    Console.Write("{0}\n", i);
+                }
+                else
+                {
+                    Console.Write("{0} ", i);
+                }
             }
             return newArray;
         }

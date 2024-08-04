@@ -7,7 +7,7 @@ class Dictionary
     {
         if (myDict.ContainsKey(key))
         {
-            myDict[key] == value;
+            myDict[key] = value;
         }
         else
         {

@@ -10,14 +10,10 @@ class List
             Console.WriteLine("Index is out of range");
             return myList;
         }
-
-        for (int i = 0; i < myList.Count; i++)
+        else
         {
-            if (i == index + 1)
-            {
-                myList.Remove(i);
-            }
+            myList.Remove(myList[index]);
+            return myList;
         }
-        return myList;
     }
 }

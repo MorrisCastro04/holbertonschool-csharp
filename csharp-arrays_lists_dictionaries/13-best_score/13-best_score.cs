@@ -5,18 +5,20 @@ class Dictionary
 {
     public static string BestScore(Dictionary<string, int> myDict)
     {
-        string bestKey = "None";
-        int bestValue = 0;
-
-        foreach (var kvp in myDict)
+        if (myDict.Count == 0)
         {
-            if (kvp.Value > bestValue)
+            return "None";
+        }
+        string player = "";
+        int BestScore = 0;
+        foreach (KeyValuePair<string, int> score in myDict)
+        {
+            if (BestScore < score.Value)
             {
-                bestKey = kvp.Key;
-                bestValue = kvp.Value;
+                player = score.Key;
+                BestScore = score.Value;
             }
         }
-
-        return bestKey;
+        return player;
     }
 }

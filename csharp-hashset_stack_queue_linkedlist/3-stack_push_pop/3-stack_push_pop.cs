@@ -15,10 +15,9 @@ class MyStack
         Console.WriteLine("Stack contains \"{0}\": {1}", search, aStack.Contains(search));
 
         if (aStack.Contains(search))
-        {
             while (aStack.Pop() != search);
-            aStack.Push(newItem);
-        }
+
+        aStack.Push(newItem);
         return aStack;
     }
 }

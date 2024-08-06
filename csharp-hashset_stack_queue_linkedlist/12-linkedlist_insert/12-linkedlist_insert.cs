@@ -9,9 +9,10 @@ class LList
 
         foreach (int num in myLList)
         {
-            if (num >= n)
+            if (num <= n && current.Next != null && current.Next.Value >= n)
             {
-                myLList.AddBefore(current, n);
+                myLList.AddAfter(current, n);
+                current = current.Next;
                 return current;
             }
             current = current.Next;

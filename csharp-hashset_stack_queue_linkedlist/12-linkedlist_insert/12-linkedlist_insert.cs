@@ -9,7 +9,7 @@ class LList
 
         foreach (int num in myLList)
         {
-            if (num > n)
+            if (num >= n)
             {
                 myLList.AddBefore(current, n);
                 return current;

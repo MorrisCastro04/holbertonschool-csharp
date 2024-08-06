@@ -9,7 +9,7 @@ class LList
 
         while (current != null)
         {
-            if (current.Value >= n && last.Value <= n)
+            if (current.Value >= n && (last == null last.Value <= n))
                 return myLList.AddBefore(current, n);
             last = current;
             current = current.Next;

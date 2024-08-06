@@ -11,12 +11,10 @@ class LList
         {
             if (num <= n && current.Next != null && current.Next.Value >= n)
             {
-                myLList.AddAfter(current, n);
-                current = current.Next;
-                return current;
+                return myLList.AddAfter(current, n);
             }
             current = current.Next;
         }
-        return current;
+        return myLList.AddLast(n);
     }
 }

@@ -5,7 +5,7 @@ class LList
 {
     public static LinkedListNode<int> Insert(LinkedList<int> myLList, int n)
     {
-        LinkedListNode<int> current = myLList.First, last = null;
+        LinkedListNode<int> current = myLList.First;
 
         if (myLList.First == null)
         {
@@ -14,9 +14,8 @@ class LList
 
         while (current != null)
         {
-            if (current.Value >= n && last.Value < n)
+            if (current.Value > n)
                 return myLList.AddBefore(current, n);
-            last = current;
             current = current.Next;
         }
         return myLList.AddLast(n);

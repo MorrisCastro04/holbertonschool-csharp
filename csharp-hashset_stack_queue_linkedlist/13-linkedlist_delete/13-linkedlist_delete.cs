@@ -10,13 +10,15 @@ class LList
 
         LinkedListNode<int> current = myLList.First;
 
-        for (int i = 0; i < myLList.Count; i++)
+        int indexCount = 0;
+        while (current != null)
         {
-            if (i == index)
+            if (indexCount == index)
             {
                 myLList.Remove(current);
             }
             current = current.Next;
+            indexCount++;
         }
     }
 }

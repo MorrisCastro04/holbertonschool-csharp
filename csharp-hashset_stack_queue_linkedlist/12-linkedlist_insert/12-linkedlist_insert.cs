@@ -7,6 +7,11 @@ class LList
     {
         LinkedListNode<int> current = myLList.First, last = null;
 
+        if (myLList.First == null)
+        {
+            return myLList.AddFirst(n);
+        }
+
         while (current != null)
         {
             if (current.Value >= n && last.Value < n)

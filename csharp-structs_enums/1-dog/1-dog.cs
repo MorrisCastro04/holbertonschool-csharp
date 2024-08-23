@@ -4,7 +4,7 @@ public enum Rating
 {
     Good,
     Great,
-    Excellent,
+    Excellent
 }
 
 public struct Dog
@@ -13,5 +13,4 @@ public struct Dog
     public float age;
     public string owner;
     public Rating rating;
-
 }

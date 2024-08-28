@@ -46,5 +46,23 @@ namespace MyMath.Tests
             int[,] result = Matrix.Divide(matrix, num);
             Assert.That(result, Is.EqualTo(new int[,] { { 0, -1, -1 }, { -2, -2, -3 }, { -3, -4, -4 } }));
         }
+
+        [Test]
+        public void TestDivideMatrixWithZeroElements()
+        {
+            int[,] matrix = new int[,] { { 0, 2, 0 }, { 4, 0, 6 }, { 0, 8, 0 } };
+            int num = 2;
+            int[,] result = Matrix.Divide(matrix, num);
+            Assert.That(result, Is.EqualTo(new int[,] { { 0, 1, 0 }, { 2, 0, 3 }, { 0, 4, 0 } }));
+        }
+
+        [Test]
+        public void TestDivideSingleElementMatrix()
+        {
+            int[,] matrix = new int[,] { { 10 } };
+            int num = 2;
+            int[,] result = Matrix.Divide(matrix, num);
+            Assert.That(result, Is.EqualTo(new int[,] { { 5 } }));
+        }
     }
 }

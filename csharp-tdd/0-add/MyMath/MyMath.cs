@@ -1,17 +1,20 @@
-﻿namespace MyMath;
+﻿using System;
 
-///<summary>
-///Operation class
-///</summary>
-public class Operations
+namespace MyMath
 {
     ///<summary>
-    ///method the sum 2 numbers
+    ///Operation class
     ///</summary>
-    /// <param name="a">first value</param>
-    /// <param name="b">second value</param>
-    /// <returns>sum of parameters</returns>
-    public static int Add(int a, int b){
-        return a + b;
+    public class Operations
+    {
+        ///<summary>
+        ///method the sum 2 numbers
+        ///</summary>
+        /// <param name="a">first value</param>
+        /// <param name="b">second value</param>
+        /// <returns>sum of parameters</returns>
+        public static int Add(int a, int b){
+            return a + b;
+        }
     }
 }

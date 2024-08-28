@@ -38,5 +38,13 @@ namespace MyMath.Tests
             int[,] result = Matrix.Divide(matrix, num);
             Assert.That(result, Is.EqualTo(new int[,] { }));
         }
+        [Test]
+        public void TestDivideNegative()
+        {
+            int[,] matrix = new int[,] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+            int num = -2;
+            int[,] result = Matrix.Divide(matrix, num);
+            Assert.That(result, Is.EqualTo(new int[,] { { 0, -1, -1 }, { -2, -2, -3 }, { -3, -4, -4 } }));
+        }
     }
 }

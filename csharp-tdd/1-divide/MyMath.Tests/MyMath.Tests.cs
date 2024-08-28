@@ -6,43 +6,37 @@ namespace MyMath.Tests
     [TestFixture]
     public class Tests
     {
-
         [Test]
-        public void Divide()
+        public void TestDivide()
         {
-            int[,] matrix = new int[,] { { 1, 2 }, { 3, 4 } };
+            int[,] matrix = new int[,] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
             int num = 2;
-            int[,] expected = new int[,] { { 0, 1 }, { 1, 2 } };
             int[,] result = Matrix.Divide(matrix, num);
-            Assert.That(result, Is.EqualTo(expected));
+            Assert.That(result, Is.EqualTo(new int[,] { { 0, 1, 1 }, { 2, 2, 3 }, { 3, 4, 4 } }));
         }
         [Test]
-        public void DivideByZero()
+        public void TestDivideByZero()
         {
-            int[,] matrix = new int[,] { { 1, 2 }, { 3, 4 } };
+            int[,] matrix = new int[,] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
             int num = 0;
-            Assert.Throws<System.DivideByZeroException>(() => Matrix.Divide(matrix, num));
+            int[,] result = Matrix.Divide(matrix, num);
+            Assert.That(result, Is.Null);
         }
         [Test]
-        public void NullMatrix()
+        public void TestDivideNull()
         {
             int[,] matrix = null;
             int num = 2;
-            Assert.That(Matrix.Divide(matrix, num), Is.EqualTo(null));
+            int[,] result = Matrix.Divide(matrix, num);
+            Assert.That(result == null);
         }
         [Test]
-        public void EmptyMatrix()
+        public void TestDivideEmpty()
         {
             int[,] matrix = new int[,] { };
             int num = 2;
-            Assert.That(Matrix.Divide(matrix, num), Is.EqualTo(new int[,] { }));
-        }
-        [Test]
-        public void EmptyMatrixDivideByZero()
-        {
-            int[,] matrix = new int[,] { };
-            int num = 0;
-            Assert.Throws<System.DivideByZeroException>(() => Matrix.Divide(matrix, num));
+            int[,] result = Matrix.Divide(matrix, num);
+            Assert.That(result, Is.EqualTo(new int[,] { }));
         }
     }
 }

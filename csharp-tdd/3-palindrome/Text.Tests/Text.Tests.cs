@@ -25,5 +25,17 @@ namespace Text.Tests{
             bool result = Str.IsPalindrome("Juan");
             Assert.That(result == false);
         }
+        [Test]
+        public void willItTrue_empty()
+        {
+            bool result = Str.IsPalindrome("");
+            Assert.That(result == true);
+        }
+        [Test]
+        public void willItTrue_null()
+        {
+            bool result = Str.IsPalindrome(null);
+            Assert.That(result == true);
+        }
     }
 }

@@ -42,5 +42,11 @@ namespace Text.Tests
         {
             Assert.That(Str.CamelCase("hello Who Are You"), Is.EqualTo(4));
         }
+
+        [Test]
+        public void FullStatementWithNumbersCase()
+        {
+            Assert.That(Str.CamelCase("helloWhoAreYou123"), Is.EqualTo(4));
+        }
     }
 }

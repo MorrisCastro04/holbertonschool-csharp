@@ -16,7 +16,7 @@ namespace Text
         {
             if (s == null || s == "")
             {
-                return -1;
+                return 0;
             }
             int count = 1;
             foreach (char c in s)

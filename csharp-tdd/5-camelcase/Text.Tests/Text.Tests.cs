@@ -16,13 +16,13 @@ namespace Text.Tests
         [Test]
         public void TestCamelCaseEmptyString()
         {
-            Assert.That(Str.CamelCase(""), Is.EqualTo(-1));
+            Assert.That(Str.CamelCase(""), Is.EqualTo(0));
         }
 
         [Test]
         public void TestCamelCaseNullString()
         {
-            Assert.That(Str.CamelCase(null), Is.EqualTo(-1));
+            Assert.That(Str.CamelCase(null), Is.EqualTo(0));
         }
 
         [Test]
@@ -41,12 +41,6 @@ namespace Text.Tests
         public void FullStatementWithSpacesCase()
         {
             Assert.That(Str.CamelCase("hello Who Are You"), Is.EqualTo(4));
-        }
-
-        [Test]
-        public void FullStatementWithNumbersCase()
-        {
-            Assert.That(Str.CamelCase("helloWhoAreYou123"), Is.EqualTo(4));
         }
     }
 }

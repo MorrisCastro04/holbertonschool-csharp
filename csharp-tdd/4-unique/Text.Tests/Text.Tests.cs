@@ -54,5 +54,13 @@ namespace Text.Tests
             int result = Str.UniqueChar(s);
             Assert.That(result, Is.EqualTo(2));
         }
+
+        [Test]
+        public void ReturnUniqueCharAtEnd()
+        {
+            string s = "aaab";
+            int result = Str.UniqueChar(s);
+            Assert.That(result, Is.EqualTo(3));
+        }
     }
 }

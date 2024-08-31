@@ -14,26 +14,22 @@ namespace Text
         /// <returns>The index of the first unique character</returns>
         public static int UniqueChar(string s)
         {
-            try
-            {
-                int[] count = new int[256];
-                for (int i = 0; i < s.Length; i++)
-                {
-                    count[s[i]]++;
-                }
-                for (int i = 0; i < s.Length; i++)
-                {
-                    if (count[s[i]] == 1)
-                    {
-                        return i;
-                    }
-                }
+            if (s == null || s.Length == 0)
                 return -1;
-            }
-            catch (NullReferenceException)
+
+            int[] count = new int[256];
+            for (int i = 0; i < s.Length; i++)
             {
-                return -1;
+                count[s[i]]++;
             }
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (count[s[i]] == 1)
+                {
+                    return i;
+                }
+            }
+            return -1;
         }
     }
 }

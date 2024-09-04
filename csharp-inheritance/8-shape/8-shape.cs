@@ -89,8 +89,8 @@ class Square : Rectangle
                 throw new ArgumentException("Size must be greater than or equal to 0");
             }
             size = value;
-            Width = value;
-            Height = value;
+            Width = size;
+            Height = size;
         }
     }
 }

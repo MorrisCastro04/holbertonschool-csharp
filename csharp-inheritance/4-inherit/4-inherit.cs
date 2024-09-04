@@ -1,11 +1,11 @@
 ﻿using System;
 
-public class Animal
+class Animal
 {
-    
+
 }
 
-public class Dog : Animal 
+class Dog : Animal 
 {
     
 }

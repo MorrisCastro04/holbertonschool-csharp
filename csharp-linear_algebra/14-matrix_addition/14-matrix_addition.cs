@@ -9,7 +9,9 @@ class MatrixMath
     /// <returns>The resulting matrix. If the matrices are not 2D or 3D, return a matrix containing -1.</returns>
     public static double[,] Add(double[,] matrix1, double[,] matrix2)
     {
-        if (matrix1.GetLength(0) == 2 && matrix2.GetLength(0) == 2 || matrix1.GetLength(0) == 3 && matrix2.GetLength(0) == 3)
+        if (((matrix1.GetLength(0) == 2 && matrix1.GetLength(1) == 2) ||
+            (matrix1.GetLength(0) == 3 && matrix1.GetLength(1) == 3)) &&
+            matrix1.GetLength(0) == matrix2.GetLength(0))
         {
             int cols = matrix1.GetLength(0);
             int rows = matrix1.GetLength(1);

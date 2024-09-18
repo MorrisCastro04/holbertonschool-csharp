@@ -18,14 +18,17 @@ class MatrixMath
             return new double[,] { { -1 } };
         }
         double[,] matrix3 = new double[matrix1.GetLength(0), matrix2.GetLength(1)];
+        double sum = 0;
         for (int rows1 = 0; rows1 < matrix1.GetLength(0); rows1++)
         {
             for (int col2 = 0; col2 < matrix2.GetLength(1); col2++)
             {
+                sum = 0;
                 for (int i = 0; i < matrix1.GetLength(1); i++)
                 {
-                    matrix3[rows1, col2] += matrix1[rows1, i] * matrix2[i, col2];
+                    sum += matrix1[rows1, i] * matrix2[i, col2];
                 }
+                matrix3[rows1, col2] = sum;
             }
         }
         return matrix3;

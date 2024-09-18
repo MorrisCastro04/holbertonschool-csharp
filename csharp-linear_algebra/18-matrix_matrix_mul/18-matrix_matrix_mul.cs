@@ -13,7 +13,7 @@ class MatrixMath
     /// <returns>The resulting matrix. If the matrices cannot be multiplied, returns a matrix containing -1.</returns>
     public static double[,] Multiply(double[,] matrix1, double[,] matrix2)
     {
-        if (matrix1.GetLength(1) != matrix2.GetLength(0))
+        if (matrix1.GetLength(0) != matrix2.GetLength(1) || matrix1.GetLength(1) != matrix2.GetLength(0))
         {
             return new double[,] { { -1 } };
         }

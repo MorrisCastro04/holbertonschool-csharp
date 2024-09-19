@@ -22,7 +22,7 @@ class MatrixMath
         if (rows != 2 || cols != 2)
             return new double[,] { { -1 } };
 
-        double[,] SinCosMatrix = { { Math.Round(cos, 1), Math.Round(sin, 1) }, { Math.Round(-sin, 1), Math.Round(cos, 1) } };
+        double[,] SinCosMatrix = { { Math.Round(cos, 2), Math.Round(sin, 2) }, { Math.Round(-sin, 2), Math.Round(cos, 2) } };
 
         for (int row = 0; row < rows; row++)
         {

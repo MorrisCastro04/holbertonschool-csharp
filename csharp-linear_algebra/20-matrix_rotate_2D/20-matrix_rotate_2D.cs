@@ -32,7 +32,7 @@ class MatrixMath
                 sum = 0;
                 for (int i = 0; i < cols; i++)
                 {
-                    sum = Math.Round(sum + (matrix[row,i] * SinCosMatrix[i, col]), 2);
+                    sum += matrix[row, i] * SinCosMatrix[i, col];
                 }
                 result[row, col] = Math.Round(sum, 2);
             }

@@ -23,7 +23,7 @@ class MatrixMath
         if (rows != 2 || cols != 2)
             return new double[,] { { -1 } };
 
-        double[,] SinCosMatrix = { { cos, sin }, { -sin, cos } };
+        double[,] SinCosMatrix = { { cos, -sin }, { sin, cos } };
 
         for (int row = 0; row < rows; row++)
         {

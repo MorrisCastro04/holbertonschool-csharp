@@ -28,7 +28,7 @@ class MatrixMath
                 {
                     sum += matrix1[rows1, i] * matrix2[i, col2];
                 }
-                matrix3[rows1, col2] = sum;
+                matrix3[rows1, col2] = Math.Round(sum, 2);
             }
         }
         return matrix3;

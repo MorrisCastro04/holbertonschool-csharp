@@ -28,11 +28,8 @@ class MatrixMath
                 sum = 0;
                 for (int i = 0; i < cols; i++)
                 {
-                    Console.WriteLine($"{sum} = {matrix[col, i]} * {shear[i, row]}");
                     sum += matrix[col, i] * shear[i, row];
-                    Console.WriteLine(sum);
                 }
-                Console.WriteLine();
                 result[col, row] = sum;
             }
         }

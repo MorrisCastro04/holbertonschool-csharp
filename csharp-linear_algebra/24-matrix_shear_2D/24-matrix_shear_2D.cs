@@ -48,23 +48,3 @@ class MatrixMath
         return result;
     }
 }
-class Name
-{
-    public static void Main()
-    {
-        double[,] matrix = new double[,] { { 1, 2 }, { 3, 4 } };
-        char direction = 'x';
-        double factor = 2;
-
-        double[,] result = MatrixMath.Shear2D(matrix, direction, factor);
-
-        for (int i = 0; i < result.GetLength(0); i++)
-        {
-            for (int j = 0; j < result.GetLength(1); j++)
-            {
-                Console.Write(result[i, j] + " ");
-            }
-            Console.WriteLine();
-        }
-    }
-}

@@ -36,6 +36,6 @@ class MatrixMath
                 result[col, row] = sum;
             }
         }
-        return shear;
+        return result;
     }
 }

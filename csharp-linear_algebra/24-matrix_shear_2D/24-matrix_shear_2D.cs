@@ -14,38 +14,37 @@ class MatrixMath
     /// <returns>double[,]</returns>
     public static double[,] Shear2D(double[,] matrix, char direction, double factor)
     {
-        int rows = matrix.GetLength(0);
-        int cols = matrix.GetLength(1);
+        int cols = matrix.GetLength(0);
+        int rows = matrix.GetLength(1);
+        double[,] result = new double[2, 2];
+        double sum;
 
-        if (rows != 2 || cols != 2)
+
+        if (cols != 2 || rows != 2)
             return new double[,] { { -1 } };
 
-        if (char.ToLower(direction) != 'x' && char.ToLower(direction) != 'y')
+        if (char.ToLower(direction) != 'y' && char.ToLower(direction) != 'x')
             return new double[,] { { -1 } };
 
-        double[,] result = new double[rows, cols];
+        if (factor < 0)
+            return new double[,] { { -1 } };
 
-        if (direction == 'x')
+        double[,] shear = new double[,] { { 1, direction == 'x' ? factor : 0 }, { direction == 'y' ? factor : 0, 1 } };
+        matrix = new double[2,2]{{matrix[0,0], matrix[1,0]},{matrix[0,1], matrix[1,1]}};
+
+        for (int col = 0; col < cols; col++)
         {
-            for (int i = 0; i < rows; i++)
+            for (int row = 0; row < rows; row++)
             {
-                for (int j = 0; j < cols; j++)
+                sum = 0;
+                for (int i = 0; i < cols; i++)
                 {
-                    result[i, j] = matrix[i, j] + (i == 0 ? factor * matrix[j, 0] : 0);
+                    sum += shear[col, i] * matrix[i, row];
                 }
+                result[col, row] = Math.Round(sum, 2);
             }
         }
-        else if (direction == 'y')
-        {
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    result[i, j] = matrix[i, j] + (j == 0 ? factor * matrix[0, i] : 0);
-                }
-            }
-        }
-
+        result = new double[2,2]{{result[0,0], result[1,0]},{result[0,1], result[1,1]}};
         return result;
     }
 }

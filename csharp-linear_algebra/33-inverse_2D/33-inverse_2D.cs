@@ -1,4 +1,6 @@
-﻿public class MatrixMath
+﻿using System;
+
+public class MatrixMath
 {
     public static double[,] Inverse2D(double[,] matrix)
     {

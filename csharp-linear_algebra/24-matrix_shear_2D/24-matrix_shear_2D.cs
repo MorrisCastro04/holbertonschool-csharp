@@ -20,7 +20,7 @@ class MatrixMath
         double sum;
 
 
-        if (cols != 2 || rows != 2)
+        if (cols != 2 && rows != 2)
             return new double[,] { { -1 } };
 
         if (direction != 'y' && direction != 'x')

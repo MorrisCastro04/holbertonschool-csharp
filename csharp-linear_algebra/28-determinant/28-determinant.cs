@@ -18,7 +18,7 @@ class MatrixMath
         if ((cols == 2 && rows == 2) || (cols == 3 && rows == 3))
         {
             if (cols == 2)
-                return Math.Round(matrix[0, 0] * matrix[1, 1] - matrix[0, 1] * matrix[1, 0]);
+                return Math.Round(matrix[0, 0] * matrix[1, 1] - matrix[0, 1] * matrix[1, 0], 2);
 
             double matrixA = matrix[0, 0] * (matrix[1, 1] * matrix[2, 2] - matrix[1, 2] * matrix[2, 1]);
             double matrixB = matrix[0, 1] * (matrix[1, 0] * matrix[2, 2] - matrix[1, 2] * matrix[2, 0]);

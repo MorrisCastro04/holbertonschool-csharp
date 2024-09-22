@@ -41,7 +41,7 @@ class MatrixMath
                 {
                     sum += shear[col, i] * matrix[i, row];
                 }
-                result[col, row] = sum;
+                result[col, row] = Math.Round(sum, 2);
             }
         }
         result = new Double[2,2]{{result[0,0], result[1,0]},{result[0,1], result[1,1]}};

@@ -31,10 +31,10 @@ public class MatrixMath
 
         double[,] inverse = new double[2, 2];
 
-        inverse[0, 0] = d / det;
-        inverse[0, 1] = -b / det;
-        inverse[1, 0] = -c / det;
-        inverse[1, 1] = a / det;
+        inverse[0, 0] = Math.Round(d / det, 2);
+        inverse[0, 1] = Math.Round(-b / det, 2);
+        inverse[1, 0] = Math.Round(-c / det, 2);
+        inverse[1, 1] = Math.Round(a / det, 2);
 
         return inverse;
     }

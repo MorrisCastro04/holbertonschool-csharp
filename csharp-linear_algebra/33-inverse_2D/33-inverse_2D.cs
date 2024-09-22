@@ -1,7 +1,15 @@
 ﻿using System;
 
+/// <summary>
+/// Class for matrix math
+/// </summary>
 public class MatrixMath
 {
+    /// <summary>
+    /// Method that calculates the inverse of a 2D matrix
+    /// </summary>
+    /// <param name="matrix">The matrix to find the inverse of</param>
+    /// <returns>The inverse of the matrix, or a matrix containing -1 if the matrix is not a 2D matrix</returns>
     public static double[,] Inverse2D(double[,] matrix)
     {
         if (matrix.GetLength(0) != 2 || matrix.GetLength(1) != 2)

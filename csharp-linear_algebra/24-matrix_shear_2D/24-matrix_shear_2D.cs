@@ -23,7 +23,7 @@ class MatrixMath
         if (cols != 2 || rows != 2)
             return new double[,] { { -1 } };
 
-        if (direction != 'y' && direction != 'x')
+        if (char.ToLower(direction) != 'y' && char.ToLower(direction) != 'x')
             return new double[,] { { -1 } };
 
         if (factor < 0)

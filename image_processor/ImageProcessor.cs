@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Threading;
 using System.Threading.Tasks;
 
 /// <summary>
@@ -17,20 +16,34 @@ class ImageProcessor
     /// <returns>void</returns>
     public static void Inverse(string[] filenames)
     {
-        Parallel.ForEach(filenames, filename =>
+        Parallel.ForEach(filenames, (filename) =>
         {
-            Bitmap image = new Bitmap(filename);
-            string newFilename = Path.GetFileNameWithoutExtension(filename) + "_inverse" + Path.GetExtension(filename);
-            for (int i = 0; i < image.Width; i++)
+            try
             {
-                for (int j = 0; j < image.Height; j++)
+                using (Bitmap image = new Bitmap(filename))
                 {
-                    Color pixel = image.GetPixel(i, j);
-                    Color newPixel = Color.FromArgb(255 - pixel.R, 255 - pixel.G, 255 - pixel.B);
-                    image.SetPixel(i, j, newPixel);
+                    for (int y = 0; y < image.Height; y++)
+                    {
+                        for (int x = 0; x < image.Width; x++)
+                        {
+                            Color pixelColor = image.GetPixel(x,y);
+                            Color InvertedColor = Color.FromArgb(255- pixelColor.R, 255 - pixelColor.G, 255 - pixelColor.B);
+                            image.SetPixel(x, y, InvertedColor);
+                        }
+                    }
+                    string directory = Path.GetPathRoot(filename);
+                    string extension = Path.GetExtension(filename);
+                    string NameNoExtension = Path.GetFileNameWithoutExtension(filename);
+                    string NewImage = Path.Combine(directory, $"{NameNoExtension}_inverse{extension}");
+
+                    image.Save(NewImage);
+                    Console.WriteLine(NewImage);
                 }
             }
-            image.Save(newFilename);
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         });
     }
 }

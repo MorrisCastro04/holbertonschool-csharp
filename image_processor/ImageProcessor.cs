@@ -16,41 +16,35 @@ class ImageProcessor
     /// <returns>void</returns>
     public static void Inverse(string[] filenames)
     {
-        List<Thread> threads = new List<Thread> { };
-        foreach (var filename in filenames)
+        Parallel.ForEach(filenames, filename =>
         {
-            // Creamos un hilo para procesar la imagen
-            Thread image = new Thread(() => ProcessImage(filename));
-            threads.Add(image);
-            image.Start();
-        }
-
-        // Esperamos a que todos los hilos terminen
-        foreach (var thread in threads)
-        {
-            thread.Join();
-        }
-    }
-
-    private static void ProcessImage(string imagename)
-    {
-        using (Bitmap image = new Bitmap(imagename))
-        {
-            for (int x = 0; x < image.Width; x++)
+            Bitmap image = new Bitmap(filename);
+            string newFilename = Path.GetFileNameWithoutExtension(filename) + "_inverse" + Path.GetExtension(filename);
+            for (int i = 0; i < image.Width; i++)
             {
-                for (int y = 0; y < image.Height; y++)
+                for (int j = 0; j < image.Height; j++)
                 {
-                    Color currentColor = image.GetPixel(x, y);
-                    Color invertedColor = Color.FromArgb(
-                        currentColor.A,
-                        255 - currentColor.R,
-                        255 - currentColor.G,
-                        255 - currentColor.B
-                    );
-                    image.SetPixel(x, y, invertedColor);
+                    Color pixel = image.GetPixel(i, j);
+                    Color newPixel = Color.FromArgb(255 - pixel.R, 255 - pixel.G, 255 - pixel.B);
+                    image.SetPixel(i, j, newPixel);
                 }
             }
-            image.Save($"{imagename}_inverted.jpg");
-        }
+            image.Save(newFilename);
+        });
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string[] filenames;
+
+        if (args.Length > 1)
+            filenames = args;
+        else
+            filenames = Directory.GetFiles("images/", "*.jpg");
+
+        ImageProcessor.Inverse(filenames);
     }
 }

@@ -17,11 +17,13 @@ class Queue<T>
     {
         return typeof(T);
     }
+    /// <summary>
+    /// Node class
+    /// </summary>
     public class Node
     {
-        T value { get; set; };
-        public node next { get; set; };
-
+        T value { get; set; }
+        public Node next { get; set; }
         // node Constructor
         public Node(T value)
         {
@@ -29,6 +31,10 @@ class Queue<T>
             this.next = null;
         }
     }
+    /// <summary>
+    /// Add a new node to the queue
+    /// </summary>
+    /// <param name="value">Value of the node</param>
     public void Enqueue(T value)
     {
         Node newNode  = new Node(value);
@@ -44,6 +50,10 @@ class Queue<T>
         }
         count++;
     }
+    /// <summary>
+    /// Remove the first node in the queue
+    /// </summary>
+    /// <returns>count</returns>
     public int Count()
     {
         return count;

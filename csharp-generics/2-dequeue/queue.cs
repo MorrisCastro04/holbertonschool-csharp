@@ -67,6 +67,12 @@ class Queue<T>
         }
         T value = head.value;
         head = head.next;
+
+        if (head == null)
+        {
+            tail = null;
+        }
+
         count--;
         return value;
     }

@@ -1,5 +1,7 @@
 ﻿using System;
 
+    delegate void CalculateHealth(float damage);
+
 /// <summary>
 /// Player class
 /// </summary>
@@ -34,7 +36,6 @@ public class Player
         Console.WriteLine($"{name} has {hp} / {maxHp} health");
     }
 
-    delegate void CalculateHealth(float damage);
 
 /// <summary>
 /// Method to calculate the damage taken

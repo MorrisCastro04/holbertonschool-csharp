@@ -161,6 +161,9 @@ class Key : Base, ICollectable
     }
 }
 
+/// <summary>
+/// RoomObjects class
+/// </summary>
 class RoomObjects
 {
     /// <summary>

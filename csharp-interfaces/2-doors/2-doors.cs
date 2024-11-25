@@ -43,6 +43,9 @@ interface ICollectable
     void Collect();
 }
 
+/// <summary>
+/// Door class
+/// </summary>
 class Door : Base, IInteractive
 {
     public Door(string value = "Door")

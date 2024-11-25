@@ -1,6 +1,6 @@
 ﻿using System;
 
-    delegate void CalculateHealth(float damage);
+delegate void CalculateHealth(float damage);
 
 /// <summary>
 /// Player class
@@ -37,35 +37,37 @@ public class Player
     }
 
 
-/// <summary>
-/// Method to calculate the damage taken
-/// </summary>
-/// <param name="damage">damage</param>
+    /// <summary>
+    /// Applies damage to player.
+    /// </summary>
     public void TakeDamage(float damage)
     {
-        if (damage <= 0)
+
+        if (damage >= 0)
+        {
+            Console.WriteLine($"{name} takes {damage} damage!");
+        }
+        else
         {
             Console.WriteLine($"{name} takes 0 damage!");
         }
-        else
-        {
-            Console.WriteLine($"{name} took {damage} damage");
-        }
+
     }
 
-/// <summary>
-/// Method to calculate the heal
-/// </summary>
-/// <param name="heal"></param>
+    /// <summary>
+    /// Rejuvinates player HP.
+    /// </summary>
     public void HealDamage(float heal)
     {
-        if (heal <= 0)
-        {
-            Console.WriteLine($"<name> heals 0 HP!");
-        }
-        else
+
+        if (heal >= 0)
         {
             Console.WriteLine($"{name} heals {heal} HP!");
         }
+        else
+        {
+            Console.WriteLine($"{name} heals 0 HP!");
+        }
+
     }
 }
